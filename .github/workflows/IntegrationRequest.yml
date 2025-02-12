@@ -1,0 +1,11 @@
+name: "Integration Request"
+
+on:
+  issue_comment:
+    types: [created]
+
+jobs:
+  if: |
+    github.event.issue.pull_request &&
+    contains(fromJSON('["OWNER", "COLLABORATOR", "MEMBER"]'), github.event.comment.author_association)
+  uses: ITensor/ITensorActions/.github/workflows/IntegrationRequest.yml@main
