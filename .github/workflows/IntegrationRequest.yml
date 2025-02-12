@@ -5,7 +5,10 @@ on:
     types: [created]
 
 jobs:
-  if: |
-    github.event.issue.pull_request &&
-    contains(fromJSON('["OWNER", "COLLABORATOR", "MEMBER"]'), github.event.comment.author_association)
-  uses: ITensor/ITensorActions/.github/workflows/IntegrationRequest.yml@main
+  integrationrequest:
+    if: |
+      github.event.issue.pull_request &&
+      contains(fromJSON('["OWNER", "COLLABORATOR", "MEMBER"]'), github.event.comment.author_association)
+    uses: ITensor/ITensorActions/.github/workflows/IntegrationRequest.yml@main
+    with:
+      localregistry: https://github.com/ITensor/ITensorRegistry.git
