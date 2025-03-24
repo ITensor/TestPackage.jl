@@ -1,0 +1,10 @@
+name: "Version Check"
+
+on:
+  pull_request:
+
+jobs:
+  version-check:
+    name: "Version Check"
+    uses: "ITensor/ITensorActions/.github/workflows/VersionCheck.yml@main"
+
